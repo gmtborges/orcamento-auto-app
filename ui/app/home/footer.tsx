@@ -1,0 +1,46 @@
+import { SiInstagram } from "@icons-pack/react-simple-icons";
+import { Cog, Mail } from "lucide-react";
+
+const Footer = () => {
+  return (
+    <footer className="bg-gray-900 py-8 text-gray-100">
+      <div className="mx-auto max-w-6xl px-4">
+        <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
+          <div className="flex items-center gap-2">
+            <span className="rounded-full bg-blue-600 p-2">
+              <Cog className="text-white" />
+            </span>
+            <h2 className="text-xl font-bold">Orçamento Auto</h2>
+          </div>
+
+          <div className="flex flex-col items-center space-y-2 md:flex-row md:space-x-6 md:space-y-0">
+            <a
+              href="mailto:suporte@orcamentoauto.com.br"
+              className="flex items-center space-x-2 transition-colors hover:text-sky-400"
+            >
+              <Mail className="h-5 w-5" />
+              <span>suporte@orcamentoauto.com.br</span>
+            </a>
+
+            <a
+              href="https://instagram.com/orcamentoauto"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 transition-colors hover:text-sky-400"
+            >
+              <SiInstagram className="h-5 w-5" />
+              <span>@orcamentoauto</span>
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-8 text-center text-sm text-gray-400">
+          © {new Date().getFullYear()} Orçamento Auto. Todos os direitos
+          reservados.
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

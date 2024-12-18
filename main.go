@@ -1,0 +1,26 @@
+package main
+
+import (
+	"log"
+
+	"github.com/pocketbase/pocketbase"
+	"github.com/pocketbase/pocketbase/apis"
+	"github.com/pocketbase/pocketbase/core"
+
+	"github.com/gmtborges/orcamento-auto-app/ui"
+)
+
+func main() {
+	app := pocketbase.New()
+
+	app.OnServe().BindFunc(func(se *core.ServeEvent) error {
+		// serves static files from the provided public dir (if exists)
+		se.Router.GET("/{path...}", apis.Static(ui.DistDirFS, true))
+
+		return se.Next()
+	})
+
+	if err := app.Start(); err != nil {
+		log.Fatal(err)
+	}
+}
