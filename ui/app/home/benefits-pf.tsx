@@ -7,8 +7,10 @@ import {
   Store,
   CheckCircle,
 } from "lucide-react";
+import { Link } from "react-router";
+import { buttonVariants } from "~/components/ui/button";
 
-const HowItWorksSection = () => {
+const BenefitsPf = () => {
   const steps = [
     {
       icon: <ShieldCheck className="h-8 w-8 text-blue-500" />,
@@ -49,7 +51,7 @@ const HowItWorksSection = () => {
   ];
 
   return (
-    <div className="mt-44 w-full bg-gray-50 pb-32 pt-20">
+    <div className="mt-44 w-full bg-gray-50 pb-20 pt-20">
       <div className="mx-auto max-w-6xl px-4">
         <div className="mb-12 text-center">
           <h2 className="mb-4 text-3xl font-bold text-gray-900">
@@ -83,8 +85,13 @@ const HowItWorksSection = () => {
           ))}
         </div>
       </div>
+      <div className="mt-12 text-center">
+        <Link to="/cadastrar-auto" className={buttonVariants()}>
+          Faça seu primeiro orçamento!
+        </Link>
+      </div>
     </div>
   );
 };
 
-export default HowItWorksSection;
+export default BenefitsPf;
