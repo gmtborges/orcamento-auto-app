@@ -10,7 +10,7 @@ import {
 import { Link } from "react-router";
 import { buttonVariants } from "~/components/ui/button";
 
-const BenefitsPf = () => {
+export default function Benefits() {
   const steps = [
     {
       icon: <ShieldCheck className="h-8 w-8 text-blue-500" />,
@@ -92,6 +92,4 @@ const BenefitsPf = () => {
       </div>
     </div>
   );
-};
-
-export default BenefitsPf;
+}

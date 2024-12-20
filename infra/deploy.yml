@@ -1,0 +1,25 @@
+# vim:ft=yaml.ansible
+---
+- name: Deploy
+  hosts: go_apps
+  become: true
+  tasks:
+    - name: Stop service
+      ansible.builtin.systemd:
+        state: stopped
+        name: orcamento-auto.service
+
+    - name: Copy binary
+      ansible.builtin.copy:
+        src: ../bin/orcamento-auto
+        dest: "/home/{{ user }}/orcamento-auto"
+        owner: "{{ user }}"
+        group: "{{ group }}"
+        mode: "0755"
+      notify: Start systemd
+
+  handlers:
+    - name: Start systemd
+      ansible.builtin.systemd:
+        state: started
+        name: orcamento-auto.service

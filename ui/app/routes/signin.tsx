@@ -58,7 +58,7 @@ export default function SignIn() {
         </p>
         <p className="mt-4 text-center text-sm text-gray-600">
           <Link
-            to="/cadastrar-pf"
+            to="/cadastrar"
             className="font-medium text-blue-500 hover:underline"
           >
             Cadastre como pessoa física

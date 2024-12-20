@@ -1,5 +1,5 @@
 import { SiInstagram } from "@icons-pack/react-simple-icons";
-import { Cog, Mail } from "lucide-react";
+import { ArrowUpRight, Cog } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -15,21 +15,11 @@ const Footer = () => {
 
           <div className="flex flex-col items-center space-y-2 md:flex-row md:space-x-6 md:space-y-0">
             <a
-              href="mailto:suporte@orcamentoauto.com.br"
+              href="/politica-privacidade"
               className="flex items-center space-x-2 transition-colors hover:text-sky-400"
             >
-              <Mail className="h-5 w-5" />
-              <span>suporte@orcamentoauto.com.br</span>
-            </a>
-
-            <a
-              href="https://instagram.com/orcamentoauto"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2 transition-colors hover:text-sky-400"
-            >
-              <SiInstagram className="h-5 w-5" />
-              <span>@orcamentoauto</span>
+              <span>Política de Privacidade</span>
+              <ArrowUpRight className="h-5 w-5" />
             </a>
           </div>
         </div>

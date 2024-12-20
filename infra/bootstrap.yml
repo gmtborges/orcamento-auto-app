@@ -1,0 +1,34 @@
+# vim:ft=yaml.ansible
+---
+- name: Bootstrap
+  hosts: go_apps
+  become: true
+  tasks:
+    - name: Create orcamento-auto systemd service
+      ansible.builtin.copy:
+        content: |
+          [Unit]
+          Description=Orcamento Auto PocketBase
+
+          [Service]
+          Type=simple
+          User={{ user }}
+          Group={{ group }}
+          LimitNOFILE=4096
+          Restart=always
+          RestartSec=5s
+          Environment=HOME=/home/{{ user }}
+          ExecStart=/home/{{ user }}/orcamento-auto serve --http=0.0.0.0:8090
+
+          [Install]
+          WantedBy=multi-user.target
+        dest: /etc/systemd/system/orcamento-auto.service
+        owner: root
+        group: root
+        mode: "0644"
+
+    - name: Enable service
+      ansible.builtin.systemd:
+        daemon_reload: true
+        name: orcamento-auto.service
+        enabled: true

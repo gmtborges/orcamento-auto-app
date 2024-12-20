@@ -1,12 +1,11 @@
 import { Link } from "react-router";
-import type { Route } from "./+types/home";
 import { buttonVariants } from "~/components/ui/button";
 import Footer from "~/home/footer";
 import Header from "~/home/header";
 import BenefitsAuto from "~/home/benefits-auto";
-import BenefitsPf from "~/home/benefits-pf";
+import Benefits from "~/home/benefits";
 
-export function meta({}: Route.MetaArgs) {
+export function meta() {
   return [
     { title: "Orçamento Auto" },
     {
@@ -23,14 +22,14 @@ export default function Home() {
       <Header />
       <main className="flex flex-col items-center justify-center pt-32">
         <div className="flex max-w-xl flex-col justify-center">
-          <h2 className="text-center text-4xl font-bold leading-snug">
+          <h2 className="text-center text-4xl font-bold">
             Orçamento de peças e serviços para seu veículo&nbsp;
             <span className="animate-pulse bg-gradient-to-r from-sky-400 via-sky-600 to-emerald-500 bg-clip-text text-4xl font-extrabold text-transparent">
               num zap!
             </span>
           </h2>
           <div className="mt-8 flex justify-center gap-4">
-            <Link className={`${buttonVariants()}`} to="/cadastrar-pf">
+            <Link className={`${buttonVariants()}`} to="/cadastrar">
               Para pessoas físicas
             </Link>
             <Link
@@ -41,7 +40,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <BenefitsPf />
+        <Benefits />
         <BenefitsAuto />
       </main>
       <Footer />
