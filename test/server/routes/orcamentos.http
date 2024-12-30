@@ -1,0 +1,19 @@
+@hostname=localhost
+@port=3000
+@host=http://{{hostname}}:{{port}}/api
+
+GET {{host}}/orcamentos
+
+### 
+
+POST {{host}}/orcamentos
+Content-Type: application/json
+
+{
+  "title": "Orcamento test",
+  "carModel": "celta",
+  "carBrand": "Chevrolet",
+  "carYear": "2013",
+  "carColor": "preto",
+  "details": "Todo fudido"
+}
